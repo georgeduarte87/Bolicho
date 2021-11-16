@@ -19,4 +19,4 @@ RUN dotnet publish "Bolicho.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-CMD ["dotnet", "Bolicho.dll"]
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet dotnet-docker-heroku.dll
