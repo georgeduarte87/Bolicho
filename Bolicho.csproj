@@ -20,4 +20,9 @@
 	<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\BackOffice\Data\" />
+    <Folder Include="Areas\BackOffice\Models\" />
+  </ItemGroup>
 </Project>

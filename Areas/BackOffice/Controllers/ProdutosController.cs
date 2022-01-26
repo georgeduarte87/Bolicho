@@ -8,8 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Bolicho.Data;
 using Bolicho.Models;
 
-namespace Bolicho.Controllers
+namespace Bolicho.Areas.BackOffice.Controllers
 {
+    [Area("BackOffice")]
     public class ProdutosController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -19,14 +20,13 @@ namespace Bolicho.Controllers
             _context = context;
         }
 
-        // GET: Produtos
+        // GET: BackOffice/Produtos
         public async Task<IActionResult> Index()
         {
             return View(await _context.Produtos.ToListAsync());
         }
 
-        
-        // GET: Produtos/Details/5
+        // GET: BackOffice/Produtos/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -44,15 +44,13 @@ namespace Bolicho.Controllers
             return View(produto);
         }
 
-        /*
-
-        // GET: Produtos/Create
+        // GET: BackOffice/Produtos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Produtos/Create
+        // POST: BackOffice/Produtos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -69,7 +67,7 @@ namespace Bolicho.Controllers
             return View(produto);
         }
 
-        // GET: Produtos/Edit/5
+        // GET: BackOffice/Produtos/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -85,7 +83,7 @@ namespace Bolicho.Controllers
             return View(produto);
         }
 
-        // POST: Produtos/Edit/5
+        // POST: BackOffice/Produtos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -120,7 +118,7 @@ namespace Bolicho.Controllers
             return View(produto);
         }
 
-        // GET: Produtos/Delete/5
+        // GET: BackOffice/Produtos/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -138,7 +136,7 @@ namespace Bolicho.Controllers
             return View(produto);
         }
 
-        // POST: Produtos/Delete/5
+        // POST: BackOffice/Produtos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
@@ -152,6 +150,6 @@ namespace Bolicho.Controllers
         private bool ProdutoExists(Guid id)
         {
             return _context.Produtos.Any(e => e.Id == id);
-        } */
+        }
     }
 }
